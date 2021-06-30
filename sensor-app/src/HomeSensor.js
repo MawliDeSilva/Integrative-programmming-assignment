@@ -3,6 +3,7 @@ import {Card, Button, Jumbotron, Container, InputGroup, FormControl} from 'react
 import './App.css'
 import Sidebar from './Sidebar';
 
+
 function HomeSensor(){
         return ( 
             <div className="row" style={{maxWidth:'100%'}}>
@@ -16,33 +17,22 @@ function HomeSensor(){
                             <h1>MONITOR - TEMPERATURE SENSOR</h1>
                         </Container>
                     </Jumbotron>
-                    <Card className="tempCard" style={{ width: '20rem', marginLeft:'350px'}} bg="info">
-                    <Card.Header style={{fontWeight:'bold'}}>Temperature</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Current Reading:</Card.Title>
-                        <Card.Text>
-                                <InputGroup className="mb-3">
-                                <FormControl
-                                    placeholder="Temperature in Celcius"
-                                />
-                                <InputGroup.Append>
-                                    <InputGroup.Text>°C</InputGroup.Text>
-                                </InputGroup.Append>
+                    <Card className="tempCard" style={{ width: '20rem', marginLeft:'450px'}} bg="info">
+                        <Card.Header style={{fontWeight:'bold'}}>TEMPERATURE</Card.Header>
+                        <Card.Body>
+                            <Card.Title>Current Reading:</Card.Title>
+                            <Card.Text>
+                                <InputGroup>
+                                    <FormControl placeholder="Temperature"/>
+                                    <Button variant="secondary">°C</Button>
+                                    <Button variant="secondary">°F</Button>
                                 </InputGroup>
-                        </Card.Text>
-                        <Button variant="primary" style={{marginBottom:'10px'}}>Convert</Button>
-                        <Card.Text>
-                                <InputGroup className="mb-3">
-                                <FormControl
-                                    placeholder="Temperature in Farenhite"
-                                />
-                                <InputGroup.Append>
-                                    <InputGroup.Text>°F</InputGroup.Text>
-                                </InputGroup.Append>
-                                </InputGroup>
-                        </Card.Text>
-                    </Card.Body>
+                            </Card.Text>
+                        </Card.Body>
                     </Card>
+                    <div style={{marginTop:'30px'}}>
+                        <img src='/image.png' alt=""style={{width:'600px', height:'400px'}}/>
+                    </div>
                 </div>
          </div>
          );
