@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {Card, Jumbotron, Container, InputGroup, FormControl} from 'react-bootstrap'
 import './App.css'
 import Sidebar from './Sidebar';
-
+import TempChart from './Components/TempChart'
+import { Component } from 'react';
 
 function HomeSensor(){
     const [temp, updateTemp] = useState({ f: 0, c: 0 })
@@ -48,7 +49,8 @@ function HomeSensor(){
                         </Card.Body>
                     </Card>
                     <div style={{marginTop:'30px'}}>
-                        <img src='/image.png' alt=""style={{width:'550px', height:'350px'}}/>
+                        <TempChart/>
+                        {/* <img src='/image.png' alt=""style={{width:'550px', height:'350px'}}/> */}
                     </div>
                 </div>
             </div>
