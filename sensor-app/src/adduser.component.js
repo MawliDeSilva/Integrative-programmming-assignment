@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './App.css';
+// import './App.css';
 
 export default class AddUser extends Component{
     constructor(props){
         super(props);
 
-        // this.onChangeUserId=this.onChangeUserId.bind(this);
         this.onChangeName=this.onChangeName.bind(this);
         this.onChangeType=this.onChangeType.bind(this);
         this.onChangeContactInfo=this.onChangeContactInfo.bind(this);
@@ -14,18 +13,12 @@ export default class AddUser extends Component{
         this.onSubmit=this.onSubmit.bind(this);
 
         this.state = {
-            // uid: '',
             name: '',
             type: '',
             contactInfo: '',
         }
     }
 
-    // onChangeUserId(e){
-    //     this.setState({
-    //         uid: e.target.value
-    //     });
-    // }
     onChangeName(e){
         this.setState({
             name: e.target.value
@@ -46,7 +39,6 @@ export default class AddUser extends Component{
         e.preventDefault();
 
         const user = {
-            // uid:  this.state.uid,
             name:  this.state.name,
             type:  this.state.type,
             contactInfo:  this.state.contactInfo,
@@ -65,10 +57,6 @@ export default class AddUser extends Component{
               <div className="container">
                 <h1>Add User</h1>
                 <form>        
-{/* 
-                <label for="name"><b>User ID:</b></label>
-                <input type="text" placeholder="User ID" name="uid" className="form-control" value={this.state.uid} onChange={this.onChangeUserId} required/>
-                <br/><br/> */}
 
                 <label for="name"><b>Name:</b></label>
                 <input type="text" placeholder="Name" name="name" className="form-control" value={this.state.name} onChange={this.onChangeName} required/>
