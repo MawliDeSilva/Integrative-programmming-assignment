@@ -58,11 +58,10 @@ export default class AddUser extends Component{
         const user = {
             name:  this.state.name,
             type:  this.state.type,
-            contactInfo:  this.state.contactInfo,
+            contact_info:  this.state.contactInfo,
             password:  this.state.password,
-
         }
-        if(user.name=='' | user.contactInfo==''){
+        if(user.name=='' | user.contact_info==''){
             this.state.errorMsg="Please fill the input fields";
             alert("Fill all the required fields")
         }else{
@@ -72,10 +71,7 @@ export default class AddUser extends Component{
             .then(res => console.log(res.data));
         
         alert("User added");       
-    
-        }
-
-        
+        }        
     }
 
     render() {
@@ -109,7 +105,7 @@ export default class AddUser extends Component{
                 <button type="cancel" className="btn btn-primary">Cancel</button>                    
                 </div>
             </form>
-            </div>  </div>             
+            </div></div>             
         );
     }
 }
