@@ -10,27 +10,27 @@ import Sidebar from './Sidebar';
 //     title :'',
 
 // }
-const TempReading = props => (
+const TempRecord = props => (
 // const User = props => (sensor_id,
         // date,
         
     <tr>        
-        <td>{props.TempReading.sensor_id}</td>
-        <td>{props.TempReading. date}</td>
-        <td>{props.TempReading.data_value}</td>
+        <td>{props.TempRecord.sensor_id}</td>
+        <td>{props.TempRecord. date}</td>
+        <td>{props.TempRecord.data_value}</td>
     </tr>
 )
 
 // export default class UserList extends Component{
-class TempReadingTable extends React.Component{   
+class TempRecordTable extends React.Component{   
     constructor(props){
         super(props);
-        this.deleteTempReading = this.deleteTempReading.bind(this)
+        this.deleteTempRecord = this.deleteTempRecord.bind(this)
         // this.deleteUser = this.deleteUser.bind(this);
         
         this.state = { 
             // users: []
-            TempReadings :[]
+            TempRecords :[]
         };
     }
 
@@ -39,7 +39,7 @@ class TempReadingTable extends React.Component{
             .then(response => {
                 this.setState({
                     // users: response.data
-                    TempReadings :response.data
+                    TempRecords :response.data
                 })   
             })
             .catch((error) =>{
@@ -48,21 +48,21 @@ class TempReadingTable extends React.Component{
     }
 
     // deleteUser(id) {
-    deleteTempReading(id){
+    deleteTempRecord(id){
         axios.delete('http://localhost:5000//tempSensors/delete/'+id)
             .then(res => console.log(res.data));
 
         this.setState({
             // users: this.state.users.filter(el => el._id !==id)
-            TempReadings: this.state.users.filter(el => el._id !==id)
+            TempRecords: this.state.users.filter(el => el._id !==id)
         })
     }
     
-    TempReadingsList() {
+    TempRecordsList() {
         // return this.state.users.map( currentuser => {
-        return this.state.TempReadings.map( currentTempReading => {
+        return this.state.TempRecords.map( currentTempRecord => {
             // return <User user={currentuser} deleteUser={this.deleteUser} key={currentuser._id}/>
-            return <TempReading TempReadings ={currentTempReading} deleteTempReading={this.deleteTempReading} key={currentTempReading.sensor_id}/>
+            return <TempRecord TempRecords ={currentTempRecord} deleteTempRecord={this.deleteTempRecord} key={currentTempRecord.sensor_id}/>
         })
     }
 
@@ -84,7 +84,7 @@ class TempReadingTable extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.TempReadingslist()}
+                        {this.TempRecordslist()}
                     </tbody>
                 </Table>
             </div>
