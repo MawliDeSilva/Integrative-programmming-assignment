@@ -18,6 +18,13 @@ class TempChart extends Component{
             }
         }
     }
+
+    static defaultProps ={
+        displayTitle : true,
+        displayLegend : true,
+        legendPosition : 'right',
+    }
+
     render(){
         return(
             <div className="chart">
@@ -25,7 +32,17 @@ class TempChart extends Component{
                 <Line
                     data={this.state.chartData}
                     options = {{
-                        maintainAspectRatio: false
+                        title :{
+                            display: this.props.displayTitle,
+                            text:'Temperature Variation',
+                            fontSize : 25,
+                
+                        },
+                        legend :{
+                            display: this.props.displayLegend,
+                            position : this.props.legendPosition,
+                        },
+                        // maintainAspectRatio: false
                     }}
                 />
                 {/* const data = {
