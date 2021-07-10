@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import './App.css';
+// import '../App.css';
 
 export default class AddUser extends Component{
     constructor(props){
@@ -55,7 +55,8 @@ export default class AddUser extends Component{
     render() {
         return(
             <div className="container">
-              <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
+              <div className="homeDiv col-10" style={{height:'88vh'}}>
+              <br/><br/>
                 <h1>Add User</h1>
                 <br/><br/>
                 <form>        
@@ -77,8 +78,8 @@ export default class AddUser extends Component{
                 <br/><br/>
 
                 <div className="clearfix">
-                <button type="cancel" className="btn btn-primary">Cancel</button>
-                <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Add User</button>    
+                <button type="submit" className="btn btn-primary" onClick={this.onSubmit}style={{marginRight:'25px'}}>Add User</button>
+                <button type="cancel" className="btn btn-primary">Cancel</button>                    
                 </div>
             </form>
             </div>  </div>             

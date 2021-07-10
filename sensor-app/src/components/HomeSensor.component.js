@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Card, Jumbotron, Container, InputGroup, FormControl} from 'react-bootstrap'
-import './App.css'
-import Sidebar from './Sidebar';
+import '../App.css';
+// import Sidebar from './Sidebar';
 
 
 function HomeSensor(){

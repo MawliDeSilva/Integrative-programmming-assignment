@@ -8,7 +8,7 @@ import {
     CDBSidebarMenuItem,
     CDBSidebarFooter
   } from 'cdbreact';
-import './App.css'
+import '../App.css';
 
 function Sidebar(){
         return ( 

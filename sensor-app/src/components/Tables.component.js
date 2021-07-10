@@ -1,7 +1,7 @@
 import React from 'react'
-import './App.css'
+import '../App.css'
 import Table from 'react-bootstrap/Table'
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 
 function Tables () {
         return ( 
