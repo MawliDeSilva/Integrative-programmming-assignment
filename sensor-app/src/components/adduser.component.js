@@ -9,6 +9,7 @@ export default class AddUser extends Component{
         this.onChangeName=this.onChangeName.bind(this);
         this.onChangeType=this.onChangeType.bind(this);
         this.onChangeContactInfo=this.onChangeContactInfo.bind(this);
+        this.onChangePassword=this.onChangePassword.bind(this);
 
         this.onSubmit=this.onSubmit.bind(this);
 
@@ -16,17 +17,29 @@ export default class AddUser extends Component{
             name: '',
             type: '',
             contactInfo: '',
+            contactInfoLabel:'Enter your Email Address',
+            password:'',
+            errorMsg:''
         }
     }
 
+   
     onChangeName(e){
         this.setState({
             name: e.target.value
         });
     }
     onChangeType(e){
+        const value = e.target.value
+        var label;
+        if(value=="Email"){
+            label = "Enter your email address"
+        }else{
+            label="Enter your phone number "
+        }
         this.setState({
-            type: e.target.value
+            type: e.target.value,
+            contactInfoLabel:label
         });
     }
     onChangeContactInfo(e){
@@ -34,22 +47,35 @@ export default class AddUser extends Component{
             contactInfo: e.target.value
         });
     }
+    onChangePassword(e){
+        this.setState({
+            password: e.target.value
+        });
+    }
     
     onSubmit(e){
         e.preventDefault();
-
         const user = {
             name:  this.state.name,
             type:  this.state.type,
             contactInfo:  this.state.contactInfo,
-        }
+            password:  this.state.password,
 
-        console.log(user);
+        }
+        if(user.name=='' | user.contactInfo==''){
+            this.state.errorMsg="Please fill the input fields";
+            alert("Fill all the required fields")
+        }else{
+            console.log(user);
 
         axios.post('http://localhost:8080/users/add', user)
             .then(res => console.log(res.data));
         
-        alert("User added");            
+        alert("User added");       
+    
+        }
+
+        
     }
 
     render() {
@@ -72,11 +98,12 @@ export default class AddUser extends Component{
                     <option name="typeCall" value="Call">Call</option>         
                 </select>
                 <br/><br/>
-
-                <label><b>Contact Info:</b></label>
-                <input type="text" name="Info" placeholder="Contact Info" className="form-control" value={this.state.contactInfo} onChange={this.onChangeContactInfo} required/>
+                <label ><b>{this.state.contactInfoLabel}</b></label>
+                <input type="text" name="Info" placeholder={this.state.contactInfoLabel} className="form-control" value={this.state.contactInfo} onChange={this.onChangeContactInfo} required/>
                 <br/><br/>
-
+                <label ><b>Password here :</b></label>
+                <input type="password" name="Info" placeholder="Password" className="form-control" value={this.state.password} onChange={this.onChangePassword} required/>
+                <br/><br/>
                 <div className="clearfix">
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit}style={{marginRight:'25px'}}>Add User</button>
                 <button type="cancel" className="btn btn-primary">Cancel</button>                    
