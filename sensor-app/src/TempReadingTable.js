@@ -17,7 +17,7 @@ const TempReading = props => (
     <tr>        
         <td>{props.TempReading.sensor_id}</td>
         <td>{props.TempReading. date}</td>
-        <td>{props.TempReading.data_valuetype}</td>
+        <td>{props.TempReading.data_value}</td>
     </tr>
 )
 
@@ -25,8 +25,8 @@ const TempReading = props => (
 class TempReadingTable extends React.Component{   
     constructor(props){
         super(props);
-
-        this.deleteUser = this.deleteUser.bind(this);
+        this.deleteTempReading = this.deleteTempReading.bind(this)
+        // this.deleteUser = this.deleteUser.bind(this);
         
         this.state = { 
             // users: []
@@ -35,7 +35,7 @@ class TempReadingTable extends React.Component{
     }
 
     componentDidMount(){
-            axios.get('http://localhost:8080/users/')
+            axios.get('http://localhost:5000//tempSensors/')
             .then(response => {
                 this.setState({
                     // users: response.data
@@ -49,7 +49,7 @@ class TempReadingTable extends React.Component{
 
     // deleteUser(id) {
     deleteTempReading(id){
-        axios.delete('http://localhost:8080/users/delete/'+id)
+        axios.delete('http://localhost:5000//tempSensors/delete/'+id)
             .then(res => console.log(res.data));
 
         this.setState({
@@ -62,7 +62,7 @@ class TempReadingTable extends React.Component{
         // return this.state.users.map( currentuser => {
         return this.state.TempReadings.map( currentTempReading => {
             // return <User user={currentuser} deleteUser={this.deleteUser} key={currentuser._id}/>
-            return TempReading TempReadings ={currentTempReading} deleteTempReading={this.deleteTempReading} key={currentTempReading._id}/>
+            return <TempReading TempReadings ={currentTempReading} deleteTempReading={this.deleteTempReading} key={currentTempReading.sensor_id}/>
         })
     }
 
