@@ -54,8 +54,10 @@ export default class AddUser extends Component{
 
     render() {
         return(
-              <div className="container">
+            <div className="container">
+              <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
                 <h1>Add User</h1>
+                <br/><br/>
                 <form>        
 
                 <label for="name"><b>Name:</b></label>
@@ -79,7 +81,7 @@ export default class AddUser extends Component{
                 <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Add User</button>    
                 </div>
             </form>
-            </div>               
+            </div>  </div>             
         );
     }
 }

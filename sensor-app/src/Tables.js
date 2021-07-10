@@ -5,11 +5,11 @@ import Sidebar from './Sidebar';
 
 function Tables () {
         return ( 
-            <div className="row" style={{maxWidth:'100%'}}>
+            // <div className="row" style={{maxWidth:'100%'}}>
 
-                {/* ----------sidebar inserted---------------- */}
-                <Sidebar/>
-                {/* ---------------home page------------ */}
+            //     {/* ----------sidebar inserted---------------- */}
+            //     <Sidebar/>
+            //     {/* ---------------home page------------ */}
                 <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
                         <div className="row">
                             <h1 style={{fontFamily:'serif', padding:'10px'}}>ALERT DETAILS</h1>
@@ -47,7 +47,7 @@ function Tables () {
                             </Table>
                         </div> 
                     </div>
-         </div>
+        //  </div>
          );
 }
  
