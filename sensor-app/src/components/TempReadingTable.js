@@ -4,40 +4,37 @@ import axios from 'axios';
 
 import Table from 'react-bootstrap/Table';
 
-import Sidebar from './Sidebar';
+// import Sidebar from '../components/Sidebar.component';
 
 const TempRecord = props => (
-
     <tr>        
         <td>{props.TempRecord.sensor_id}</td>
-        <td>{props.TempRecord. date}</td>
+        <td>{props.TempRecord.date}</td>
         <td>{props.TempRecord.data_value}</td>
     </tr>
 )
 
-
-class TempRecordTable extends React.Component{   
+class TempRecordTable extends Component{   
     constructor(props){
         super(props);
-        this.deleteTempRecord = this.deleteTempRecord.bind(this)
-     
-        
-        this.state = { 
 
+        this.deleteTempRecord = this.deleteTempRecord.bind(this)
+             
+        this.state = { 
             TempRecords :[]
         };
     }
 
     componentDidMount(){
-            axios.get('http://localhost:8080//tempreadings/')
-            .then(response => {
-                this.setState({
-                    TempRecords :response.data
-                })   
-            })
-            .catch((error) =>{
-                console.log(error);
-            })
+        axios.get('http://localhost:8080/tempreadings/')
+        .then(response => {
+            this.setState({
+                TempRecords :response.data
+            })   
+        })
+        .catch((error) =>{
+            console.log(error);
+        })
     }
 
     // deleteUser(id) {
@@ -52,17 +49,17 @@ class TempRecordTable extends React.Component{
     
     TempRecordsList() {
         return this.state.TempRecords.map( currentTempRecord => {
-            return <TempRecord TempRecords ={currentTempRecord} deleteTempRecord={this.deleteTempRecord} key={currentTempRecord.sensor_id}/>
+            return <TempRecord TempRecord={currentTempRecord} deleteTempRecord={this.deleteTempRecord} key={currentTempRecord._id}/>
         })
     }
 
     render() {
         return(
-            <div className="row" style={{maxWidth:'100%'}}>
+            // <div className="row" style={{maxWidth:'100%'}}>
 
-                {/* ----------sidebar inserted---------------- */}
-                <Sidebar/>
-                {/* ---------------home page------------ */}
+            //     {/* ----------sidebar inserted---------------- */}
+            //     <Sidebar/>
+            //     {/* ---------------home page------------ */}
             <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
                 <h3>Temperature</h3><br/>
                 <Table striped bordered hover>
@@ -74,13 +71,13 @@ class TempRecordTable extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.TempRecordslist()}
+                        {this.TempRecordsList()}
                     </tbody>
                 </Table>
             </div>
-            </div>
+            // {/* </div> */}
         );
     }
 }
  
-export default TempReadingTable;
+export default TempRecordTable;

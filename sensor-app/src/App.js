@@ -7,22 +7,21 @@ import Sidebar from './components/Sidebar.component';
 import HomeSensor from './components/HomeSensor.component';
 import Tables from './components/Tables.component';
 import AddUser from './components/adduser.component';
+import TempReadingTable from './components/TempReadingTable';
 
 function App() {
   return (
-    // <>
     <Router>
         <Switch> 
           <div className="row" style={{maxWidth:'100%'}}>
             <Route path='/' component={Sidebar}/>
             <Route path='/' exact component={HomeSensor}/>
             <Route path='/tables' exact component={Tables}/>
-            <Route path='/users-add' exact component={AddUser}/>            
+            <Route path='/users-add' exact component={AddUser}/>
+            <Route path='/tempreadings' exact component={TempReadingTable}/>            
           </div>  
         </Switch>
     </Router>
-        
-    // </>
   );
 }
 
