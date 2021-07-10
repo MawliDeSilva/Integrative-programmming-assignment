@@ -6,14 +6,8 @@ import Table from 'react-bootstrap/Table';
 
 import Sidebar from './Sidebar';
 
-// state = {
-//     title :'',
-
-// }
 const TempRecord = props => (
-// const User = props => (sensor_id,
-        // date,
-        
+
     <tr>        
         <td>{props.TempRecord.sensor_id}</td>
         <td>{props.TempRecord. date}</td>
@@ -21,24 +15,23 @@ const TempRecord = props => (
     </tr>
 )
 
-// export default class UserList extends Component{
+
 class TempRecordTable extends React.Component{   
     constructor(props){
         super(props);
         this.deleteTempRecord = this.deleteTempRecord.bind(this)
-        // this.deleteUser = this.deleteUser.bind(this);
+     
         
         this.state = { 
-            // users: []
+
             TempRecords :[]
         };
     }
 
     componentDidMount(){
-            axios.get('http://localhost:5000//tempSensors/')
+            axios.get('http://localhost:8080//tempreadings/')
             .then(response => {
                 this.setState({
-                    // users: response.data
                     TempRecords :response.data
                 })   
             })
@@ -49,19 +42,16 @@ class TempRecordTable extends React.Component{
 
     // deleteUser(id) {
     deleteTempRecord(id){
-        axios.delete('http://localhost:5000//tempSensors/delete/'+id)
+        axios.delete('http://localhost:8080//tempreadings/delete/'+id)
             .then(res => console.log(res.data));
 
         this.setState({
-            // users: this.state.users.filter(el => el._id !==id)
             TempRecords: this.state.users.filter(el => el._id !==id)
         })
     }
     
     TempRecordsList() {
-        // return this.state.users.map( currentuser => {
         return this.state.TempRecords.map( currentTempRecord => {
-            // return <User user={currentuser} deleteUser={this.deleteUser} key={currentuser._id}/>
             return <TempRecord TempRecords ={currentTempRecord} deleteTempRecord={this.deleteTempRecord} key={currentTempRecord.sensor_id}/>
         })
     }
