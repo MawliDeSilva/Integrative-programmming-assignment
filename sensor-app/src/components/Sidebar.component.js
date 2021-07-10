@@ -29,8 +29,11 @@ function Sidebar(){
                         <NavLink exact to="/tables" activeClassName="activeClicked" className="sideNavlink">
                             <CDBSidebarMenuItem icon="table" className="sideMenuitem">TABLE LISTS</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/"  className="sideNavlink">
-                            <CDBSidebarMenuItem style={{color:"#fff"}} icon="bell" className="sideMenuitem">NOTIFICATIONS</CDBSidebarMenuItem>
+                        <NavLink exact to="/alerts"  activeClassName="activeClicked" className="sideNavlink">
+                            <CDBSidebarMenuItem icon="bell" className="sideMenuitem">ALERTS</CDBSidebarMenuItem>
+                        </NavLink>
+                        <NavLink exact to="/users-add"  activeClassName="activeClicked" className="sideNavlink">
+                            <CDBSidebarMenuItem icon="user" className="sideMenuitem">USERS</CDBSidebarMenuItem>
                         </NavLink>
                        
                     </CDBSidebarMenu>

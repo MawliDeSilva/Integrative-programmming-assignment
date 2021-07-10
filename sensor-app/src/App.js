@@ -17,7 +17,7 @@ function App() {
             <Route path='/' component={Sidebar}/>
             <Route path='/' exact component={HomeSensor}/>
             <Route path='/tables' exact component={Tables}/>
-            <Route path='/user-add' exact component={AddUser}/>            
+            <Route path='/users-add' exact component={AddUser}/>            
           </div>  
         </Switch>
     </Router>
