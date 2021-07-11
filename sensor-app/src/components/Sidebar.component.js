@@ -26,8 +26,8 @@ function Sidebar(){
                         <NavLink exact to="/" activeClassName="activeClicked" className="sideNavlink">
                             <CDBSidebarMenuItem icon="tachometer-alt" className="sideMenuitem">DASHBOARD</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/tables" activeClassName="activeClicked" className="sideNavlink">
-                            <CDBSidebarMenuItem icon="table" className="sideMenuitem">TABLE LISTS</CDBSidebarMenuItem>
+                        <NavLink exact to="/tempreadings" activeClassName="activeClicked" className="sideNavlink">
+                            <CDBSidebarMenuItem icon="table" className="sideMenuitem">SENSOR READINGS</CDBSidebarMenuItem>
                         </NavLink>
                         <NavLink exact to="/alerts"  activeClassName="activeClicked" className="sideNavlink">
                             <CDBSidebarMenuItem icon="bell" className="sideMenuitem">ALERTS</CDBSidebarMenuItem>
