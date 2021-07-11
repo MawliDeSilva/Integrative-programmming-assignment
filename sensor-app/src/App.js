@@ -8,6 +8,7 @@ import HomeSensor from './components/HomeSensor.component';
 import Tables from './components/Tables.component';
 import AddUser from './components/adduser.component';
 import TempReadingTable from './components/TempReadingTable';
+import AlertList from './components/alert-list.component';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
             <Route path='/' exact component={HomeSensor}/>
             <Route path='/tables' exact component={Tables}/>
             <Route path='/users-add' exact component={AddUser}/>
-            <Route path='/tempreadings' exact component={TempReadingTable}/>            
+            <Route path='/tempreadings' exact component={TempReadingTable}/>  
+            <Route path='/alerts' exact component={AlertList}/>            
           </div>  
         </Switch>
     </Router>
