@@ -19,6 +19,7 @@ class TempRecordTable extends Component{
         super(props);
 
         this.deleteTempRecord = this.deleteTempRecord.bind(this)
+        this.UpdateTable = this.UpdateTable.bind(this)
              
         this.state = { 
             TempRecords :[]
@@ -29,7 +30,8 @@ class TempRecordTable extends Component{
         axios.get('http://localhost:8080/tempreadings/')
         .then(response => {
             this.setState({
-                TempRecords :response.data
+                TempRecords :response.data,
+                _TempRecords: response.data,
             })   
         })
         .catch((error) =>{
@@ -53,6 +55,26 @@ class TempRecordTable extends Component{
         })
     }
 
+    UpdateTable(event){        
+        const filterValue = event.target.value
+        var test = []
+
+        if(filterValue != "-"){
+            this.state._TempRecords.map(currentTempRecord=>{
+                if(currentTempRecord.sensor_id == filterValue){
+                    test.push(currentTempRecord)
+                }
+            })
+        }else{
+            test=this.state._TempRecords
+        }
+        
+
+        this.setState({TempRecords:test})
+
+
+    }
+
     render() {
         return(
             // <div className="row" style={{maxWidth:'100%'}}>
@@ -60,8 +82,15 @@ class TempRecordTable extends Component{
             //     {/* ----------sidebar inserted---------------- */}
             //     <Sidebar/>
             //     {/* ---------------home page------------ */}
+
             <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
-                <h3>Temperature</h3><br/>
+                <h3>Temperature Sensor Readings</h3><br/>
+                <h6>Select a temperature Sensor</h6>
+                <select onChange={this.UpdateTable} >
+                    <option>-</option>
+                    <option>xxxx</option>
+                    <option>yyyy</option>
+                </select>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
