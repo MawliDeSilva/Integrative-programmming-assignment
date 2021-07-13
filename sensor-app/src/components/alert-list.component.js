@@ -19,6 +19,8 @@ export default class AlertList extends Component{
     constructor(props){
         super(props);
         
+        this.UpdateTable = this.UpdateTable.bind(this)
+
         this.state = { 
             alerts: []
         };
@@ -28,7 +30,8 @@ export default class AlertList extends Component{
             axios.get('http://localhost:8080/alerts/')
             .then(response => {
                 this.setState({
-                    alerts: response.data
+                    alerts: response.data,
+                    _alerts: response.data,
                 })   
             })
             .catch((error) =>{
@@ -42,10 +45,35 @@ export default class AlertList extends Component{
         })
     }
 
+    UpdateTable(event){        
+        const filterValue = event.target.value
+        var test = []
+
+        if(filterValue != "-"){
+            this.state._alerts.map(currentalert=>{
+                if(currentalert.sensor_id == filterValue){
+                    test.push(currentalert)
+                }
+            })
+        }else{
+            test=this.state._alerts
+        }
+        
+        this.setState({alerts:test})
+
+
+    }
+
     render() {
         return(
             <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
                 <h3>Alerts</h3><br/>
+                <h6>Select a temperature Sensor</h6>
+                <select onChange={this.UpdateTable} >
+                    <option>-</option>
+                    <option>xxxx</option>
+                    <option>yyyy</option>
+                </select>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
