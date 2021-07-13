@@ -3,6 +3,7 @@ import {Card, Jumbotron, Container, InputGroup, FormControl} from 'react-bootstr
 import '../App.css';
 // import Sidebar from './Sidebar';
 import TempChart from './TempChart';
+import TemperatureChart from './TemperatureChart';
 
 function HomeSensor(){
     const [temp, updateTemp] = useState({ f: 0, c: 0 })
@@ -48,7 +49,9 @@ function HomeSensor(){
                         </Card.Body>
                     </Card>
                     <div style={{marginTop:'30px'}}>
-                        <TempChart/>
+                        {/* getData(); */}
+                        {/* <TempChart/> */}
+                        <TemperatureChart/>
                         {/* <img src='/image.png' alt=""style={{width:'550px', height:'350px'}}/> */}
                     </div>
                 </div>
