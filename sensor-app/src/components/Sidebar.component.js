@@ -27,7 +27,7 @@ function Sidebar(){
                             <CDBSidebarMenuItem icon="tachometer-alt" className="sideMenuitem">DASHBOARD</CDBSidebarMenuItem>
                         </NavLink>
                         <NavLink exact to="/tempreadings" activeClassName="activeClicked" className="sideNavlink">
-                            <CDBSidebarMenuItem icon="table" className="sideMenuitem">SENSOR READINGS</CDBSidebarMenuItem>
+                            <CDBSidebarMenuItem icon="table" className="sideMenuitem">READINGS</CDBSidebarMenuItem>
                         </NavLink>
                         <NavLink exact to="/alerts"  activeClassName="activeClicked" className="sideNavlink">
                             <CDBSidebarMenuItem icon="bell" className="sideMenuitem">ALERTS</CDBSidebarMenuItem>
