@@ -33,7 +33,7 @@ class TempRecordTable extends Component{
             this.setState({
                 TempRecords :response.data,
                 _TempRecords: response.data,
-                currentReading:'',
+                currentReading:'-',
             })   
         })
         .catch((error) =>{
