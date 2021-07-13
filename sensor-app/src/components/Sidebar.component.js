@@ -40,7 +40,7 @@ function Sidebar(){
                 </CDBSidebarContent>
                 <CDBSidebarFooter style={{ textAlign: "center" }}>
                     <CDBSidebarMenu style={{ fontWeight: 'bold' }}>
-                        <NavLink exact to="/" className="sideNavlink">
+                        <NavLink exact to="/login" className="sideNavlink">
                             <CDBSidebarMenuItem style={{color:"#fff"}} icon="sign-out-alt" className="sideMenuitem">LOGOUT</CDBSidebarMenuItem>
                         </NavLink>
                     </CDBSidebarMenu>

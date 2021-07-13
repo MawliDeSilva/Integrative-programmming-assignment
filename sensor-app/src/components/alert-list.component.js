@@ -66,7 +66,7 @@ export default class AlertList extends Component{
 
     render() {
         return(
-            <div className="homeDiv col-10 text-center" style={{height:'88vh'}}>
+            <div className="homeDiv col-10 text-center" >
                 <h3>Alerts</h3><br/>
                 <h6>Select a temperature Sensor</h6>
                 <select onChange={this.UpdateTable} >
