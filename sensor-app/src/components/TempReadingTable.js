@@ -22,7 +22,8 @@ class TempRecordTable extends Component{
         this.UpdateTable = this.UpdateTable.bind(this)
              
         this.state = { 
-            TempRecords :[]
+            TempRecords :[],
+           currentReading: '',
         };
     }
 
@@ -32,6 +33,7 @@ class TempRecordTable extends Component{
             this.setState({
                 TempRecords :response.data,
                 _TempRecords: response.data,
+                currentReading:'',
             })   
         })
         .catch((error) =>{
@@ -55,9 +57,10 @@ class TempRecordTable extends Component{
         })
     }
 
-    UpdateTable(event){        
+    UpdateTable(event){
         const filterValue = event.target.value
         var test = []
+        var localCurrentReading;
 
         if(filterValue != "-"){
             this.state._TempRecords.map(currentTempRecord=>{
@@ -65,14 +68,12 @@ class TempRecordTable extends Component{
                     test.push(currentTempRecord)
                 }
             })
+            localCurrentReading = test[test.length-1]
         }else{
             test=this.state._TempRecords
         }
         
-
-        this.setState({TempRecords:test})
-
-
+        this.setState({TempRecords:test, currentReading: localCurrentReading.data_value})
     }
 
     render() {
@@ -91,6 +92,8 @@ class TempRecordTable extends Component{
                     <option>xxxx</option>
                     <option>yyyy</option>
                 </select>
+
+                <h5>Current reading: {this.state.currentReading}'C</h5>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -103,6 +106,8 @@ class TempRecordTable extends Component{
                         {this.TempRecordsList()}
                     </tbody>
                 </Table>
+                {console.log(this.state.currentReading)}
+               
             </div>
             // {/* </div> */}
         );
