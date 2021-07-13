@@ -45,39 +45,16 @@ const TemperatureChart =()=>{
     useEffect(() => {
         Chart();
     },[]);
-// }
-    // constructor(props){
-    //     super(props);
-    //     this.state ={
-    //         chartData :{
-    //             labels:TimeData,
-    //             datasets: [{
-    //                 label: 'My First Dataset',
-    //                 data: TempData,
-    //                 fill: false,
-    //                 borderColor: 'rgb(75, 192, 192)',
-    //                 tension: 0.1
-    //             }]
-    //         }
-    //     }
-    // }
-
-//     static defaultProps ={
-//         displayTitle : true,
-//         displayLegend : true,
-//         legendPosition : 'right',
-//     }
-
 
      return(
         <div className="chart">
-            <div className ="TemperatureChart">
+            <div className ="TemperatureChart" >
             <Line
                 // data={this.state.chartData}
                 data ={chartData}
                 options = {{
                     title :{
-                        display: false,
+                        display: true,
                         text:'Temperature Variation',
                         fontSize : 25,
             
