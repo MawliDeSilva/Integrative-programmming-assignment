@@ -11,10 +11,24 @@
 
 .sidebarComponent {
   display: flex;
-  height: 100vh;
-  overflow: scroll initial;
+  height: 150vh;
+  /* overflow: initial; */
+  overflow-x:hidden;
+  overflow-y: visible;
   margin-left: 0px;
 }
+
+.homeDiv{
+  height: 88vh;
+}
+
+/* .row{
+  height: 100vh; 
+  display: flex;
+}
+.col-2{
+  height: 100vh; 
+} */
 
 /* //adduser css
 .button1 {
