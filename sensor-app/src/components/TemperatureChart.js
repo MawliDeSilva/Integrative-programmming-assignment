@@ -2,6 +2,13 @@ import React,{ useState,useEffect } from 'react';
 import{Bar,Line, Pie} from 'react-chartjs-2';
 import axios from 'axios';
 
+const TempRecord = props => (
+    <tr>        
+        <td>{props.TempRecord.sensor_id}</td>
+        <td>{props.TempRecord.date}</td>
+        <td>{props.TempRecord.data_value}</td>
+    </tr>
+)
 
 const TemperatureChart =()=>{
     
