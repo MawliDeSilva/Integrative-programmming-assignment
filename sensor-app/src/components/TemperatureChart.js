@@ -42,7 +42,7 @@ const TemperatureChart =()=>{
                 // chartData :{
                     labels:TimeData_x,
                     datasets: [{
-                        label: 'Temperature data',
+                        label: 'Temperature data XXXX',
                         data: TempData_x,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
@@ -50,7 +50,7 @@ const TemperatureChart =()=>{
                         display : true,
                     },
                     {
-                        label: 'Temperature data y',
+                        label: 'Temperature data YYYY',
                         data: TempData_y,
                         fill: false,
                         borderColor: 'rgb(75, 55, 192)',
