@@ -12,46 +12,65 @@ const TempRecord = props => (
 
 const TemperatureChart =()=>{
     
-    const[chartData, setChartData] = useState({});
+    var[chartData, setChartData] = useState({});
     const[temperatureData, setTemperatureData] = useState([]);
     const[timeSeriesData, setTimeData] = useState([]);
     
 
     const Chart =()=>{
-        let TempData =[];
-        let TimeData =[];
+        let TempData_x =[];
+        let TimeData_x =[];
+        let TempData_y =[];
+        let TimeData_y =[];
         axios.get("http://localhost:8080/tempreadings/")
         .then(response => {
             console.log(response) 
             
             //  for (const dataObj of response.data.data){
             for (const dataObj of response.data){
-                TempData.push(parseFloat(dataObj.data_value))
-                TimeData.push(parseFloat(dataObj.date))
+                if(dataObj.sensor_id === "xxxx"){
+                    console.log(dataObj.sensor_id)
+                    TempData_x.push(parseFloat(dataObj.data_value))
+                    TimeData_x.push(parseFloat(dataObj.date)) 
+                }
+                else if (dataObj.sensor_id === 'yyyy'){
+                    TempData_y.push(parseFloat(dataObj.data_value))
+                    TimeData_y.push(parseFloat(dataObj.date))
+                }
             }
             setChartData({
                 // chartData :{
-                    labels:TimeData,
+                    labels:TimeData_x,
                     datasets: [{
                         label: 'Temperature data',
-                        data: TempData,
+                        data: TempData_x,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1,
                         display : true,
+                    },
+                    {
+                        label: 'Temperature data y',
+                        data: TempData_y,
+                        fill: false,
+                        borderColor: 'rgb(75, 55, 192)',
+                        tension: 0.1,
+                        display : true,
                     }]
+                    
             });
         })
         .catch((error) =>{
             console.log(error);
         })
-        console.log(TempData, TimeData)
+        console.log(TempData_x, TimeData_x)
 
         
     }
 
     useEffect(() => {
         Chart();
+        console.log("chart")
     },[]);
 
      return(
